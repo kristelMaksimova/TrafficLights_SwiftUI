@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2043090C27997EC600951C33 /* CircleUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2043090B27997EC600951C33 /* CircleUIView.swift */; };
 		206CB0D22799760D006B3548 /* TrafficLights_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206CB0D12799760D006B3548 /* TrafficLights_SwiftUIApp.swift */; };
 		206CB0D42799760D006B3548 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206CB0D32799760D006B3548 /* ContentView.swift */; };
 		206CB0D627997611006B3548 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 206CB0D527997611006B3548 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2043090B27997EC600951C33 /* CircleUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleUIView.swift; sourceTree = "<group>"; };
 		206CB0CE2799760D006B3548 /* TrafficLights_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrafficLights_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		206CB0D12799760D006B3548 /* TrafficLights_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLights_SwiftUIApp.swift; sourceTree = "<group>"; };
 		206CB0D32799760D006B3548 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				206CB0D12799760D006B3548 /* TrafficLights_SwiftUIApp.swift */,
 				206CB0D32799760D006B3548 /* ContentView.swift */,
+				2043090B27997EC600951C33 /* CircleUIView.swift */,
 				206CB0D527997611006B3548 /* Assets.xcassets */,
 				206CB0D727997611006B3548 /* Preview Content */,
 			);
@@ -139,6 +142,7 @@
 			files = (
 				206CB0D42799760D006B3548 /* ContentView.swift in Sources */,
 				206CB0D22799760D006B3548 /* TrafficLights_SwiftUIApp.swift in Sources */,
+				2043090C27997EC600951C33 /* CircleUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
