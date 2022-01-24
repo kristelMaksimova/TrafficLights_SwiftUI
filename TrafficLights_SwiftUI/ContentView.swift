@@ -13,11 +13,36 @@ enum CurrentLight {
 
 struct ContentView: View {
     
-    @State var currentLight = CurrentLight.red
+    @State private var buttonTitle = "START"
     
-    @State var redLight = false
-    @State var yellowLight = false
-    @State var greenLight = false
+    @State private var currentLight = CurrentLight.red
+    
+    @State private var redLight = 0.3
+    @State private var yellowLight = 0.3
+    @State private var greenLight = 0.3
+    
+    private func nextColor() {
+        
+        let lightIsOn = 1.0
+        let lightIsOff = 0.3
+        
+        switch currentLight {
+        case .red:
+            greenLight = lightIsOff
+            redLight = lightIsOn
+            currentLight = CurrentLight.yellow
+        case .yellow:
+            redLight = lightIsOff
+            yellowLight = lightIsOn
+            currentLight = CurrentLight.green
+        case .green:
+            yellowLight = lightIsOff
+            greenLight = lightIsOn
+            currentLight = CurrentLight.red
+        }
+    }
+}
+extension ContentView {
     
     var body: some View {
         ZStack {
@@ -25,52 +50,28 @@ struct ContentView: View {
             Color(.black)
                 .ignoresSafeArea()
             
-            VStack {
-                VStack() {
-                    CircleUIView(color: .red, opacity: redLight)
-                    CircleUIView(color: .yellow, opacity: yellowLight)
-                    CircleUIView(color: .green, opacity: greenLight)
-                    Spacer()}
-                VStack {
-                    Button(action: {
-                        switch currentLight {
-                        case .red:
-                            greenLight = false
-                            redLight = true
-                            currentLight = CurrentLight.yellow
-                        case .yellow:
-                            redLight = false
-                            yellowLight = true
-                            currentLight = CurrentLight.green
-                        case .green:
-                            yellowLight = false
-                            greenLight = true
-                            currentLight = CurrentLight.red
-                        }
-                    },
-                           label: { if redLight == true || greenLight == true || yellowLight == true {
-                               Text("NEXT")
-                           } else {
-                               Text("START")
-                           }
-                    })
-                    
-                        .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/50.0/*@END_MENU_TOKEN@*/)
-                        .background(.blue)
-                        .foregroundColor(.white)
-                        .overlay(RoundedRectangle(cornerRadius: 15).stroke(Color.white, lineWidth: 3))
-                        .cornerRadius(15)
-                        .padding()
+            VStack(spacing: 20) {
+                ColorLight(color: .red, opacity: redLight)
+                ColorLight(color: .yellow, opacity: yellowLight)
+                ColorLight(color: .green, opacity: greenLight)
+                
+                Spacer()
+                ChangeColorButton(title: buttonTitle) {
+                    if buttonTitle == "START" {
+                        buttonTitle = "NEXT"
+                    }
+                    nextColor()
                 }
+                
             }
-        }
-    }
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            Group {
-                ContentView()
-                    .previewInterfaceOrientation(.portrait)
-            }
+            .padding()
         }
     }
 }
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
